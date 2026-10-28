@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Del otro lado</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{margin:0;min-height:100%;background:#141217;color:#fff7d6;font-family:"Fredoka","Trebuchet MS",sans-serif}
+body{display:flex;justify-content:center}
+.g{width:100%;max-width:900px;padding:10px}
+.top{display:flex;justify-content:space-between;font-weight:600;font-size:18px;margin-bottom:6px}
+.sc{position:relative}
+svg{width:100%;height:auto;display:block;border:4px solid #000;border-radius:8px;transition:filter 2s}
+svg.d1{--sky:#c4e3d3;--tr:#8a5a38;--bu:#4d9a4c;--gr:#6aae50;--gt:#2c6a34;--di:#dbb58c;--wa:#6b6973;--wd:#7d5026;--sh:#a5a69e;--ey:0;--vig:.1}
+svg.d2{--sky:#d8d49a;--tr:#6a4220;--bu:#5a8a30;--gr:#79a23c;--gt:#4d6e22;--di:#c19e72;--wa:#47454d;--wd:#533413;--sh:#80838a;--ey:.35;--vig:.3;filter:saturate(.8) brightness(.9)}
+svg.d3{--sky:#9a6c58;--tr:#3f2b20;--bu:#33502d;--gr:#456430;--gt:#2c4220;--di:#957658;--wa:#35333b;--wd:#3a230d;--sh:#5e6068;--ey:.8;--vig:.5;filter:saturate(.55) brightness(.72)}
+svg.d4{--sky:#4a2030;--tr:#201418;--bu:#18241a;--gr:#212e1b;--gt:#131c11;--di:#5d4838;--wa:#1f1e25;--wd:#26170a;--sh:#3d3e43;--ey:1;--vig:.8;filter:saturate(.3) brightness(.55) contrast(1.2)}
+svg.nt{--sky:#12163a;--tr:#1b1210;--bu:#10261a;--gr:#14301f;--gt:#0b1a12;--di:#3a3028}
+.sk{fill:var(--sky)}.tr{fill:var(--tr)}.bu{fill:var(--bu)}.gr{fill:var(--gr)}.gt{stroke:var(--gt)}.di{fill:var(--di)}.wa{fill:var(--wa)}.wd{fill:var(--wd)}.sh{fill:var(--sh)}
+.eyes{opacity:var(--ey)}
+#vg stop:last-child{stop-opacity:var(--vig)}
+.t{display:none}.d1 .t1,.d2 .t2,.d3 .t3{display:inline}
+.shutter{transition:transform 2.4s cubic-bezier(.45,0,.25,1)}
+.sign{transform-origin:608px 84px;transition:transform 1.5s}
+.d2 .sign{transform:rotate(4deg)}.d3 .sign{transform:rotate(-12deg)}.d4 .sign{transform:rotate(-28deg);animation:fl 2.4s infinite}
+@keyframes fl{0%,60%,100%{opacity:1}65%,75%{opacity:.2}}
+#who,#hands,#dem{transition:opacity .8s;opacity:0}
+#mir{transition:opacity 2s;opacity:0}#out{transition:opacity 1.5s}
+#cam{transition:transform 4.5s ease-in-out}
+.trem{animation:tr .1s infinite}@keyframes tr{50%{transform:translate(2px,1px)}}
+.knock{animation:kn .45s}@keyframes kn{20%{transform:translate(-5px,3px)}50%{transform:translate(4px,-3px)}}
+#fade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;transition:opacity 2s;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(26px,6vw,52px);border-radius:8px}
+.ui{margin-top:10px}
+.cap{margin:0 0 10px;background:#000;border:3px solid #fff7d6;border-radius:10px;padding:12px 16px;font-size:clamp(18px,3.6vw,26px);text-align:center}
+.row,.rec,.shelf{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+button{font:inherit;font-weight:600;background:#fff7d6;color:#17100a;border:3px solid #17100a;border-radius:12px;padding:6px 16px;cursor:pointer;font-size:20px}
+button:disabled{opacity:.4}button:focus-visible{outline:3px solid #ffd84a}
+.ing{padding:6px 10px;font-size:26px;line-height:1.1}.ing small{display:block;font-size:13px}.ing.on{background:#ffd84a}
+.ch{background:#fff7d6;color:#17100a;border:3px solid #17100a;border-radius:10px;padding:4px 12px;font-size:22px;font-weight:600}
+.sm{filter:blur(1.5px);opacity:.7;background:#b9b3a0}
+.bar{position:relative;width:min(560px,90%);height:34px;background:#000;border:3px solid #fff7d6;border-radius:10px;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0}.zn{background:#4cc95a}.mk{width:6px;background:#fff;margin-left:-3px}
+.po{display:inline-block;width:22px;height:22px;border-radius:50%;border:3px solid #17100a;vertical-align:middle;margin-right:6px}
+svg.d1{--gn:.14}svg.d2{--gn:.2}svg.d3{--gn:.3}svg.d4{--gn:.4}.idle{animation:id 3.5s ease-in-out infinite}@keyframes id{50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="g">
+<div class="top"><span id="dl">Del otro lado</span><span id="co">🪙 0 · cuota 8</span></div>
+<div class="sc">
+<svg id="sv" class="d1" viewBox="0 0 800 540" role="img" aria-label="Ventanilla de la tienda de pociones">
+<defs>
+<clipPath id="open"><rect x="118" y="68" width="564" height="364"/></clipPath>
+<radialGradient id="vg" cx=".5" cy=".5" r=".75"><stop offset=".45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000"/></radialGradient>
+<filter id="ink" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
+<filter id="gr" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.2"/></filter>
+<linearGradient id="sd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".45"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>
+<pattern id="stn" width="170" height="130" patternUnits="userSpaceOnUse"><g fill="#fff" fill-opacity=".06" stroke="#000" stroke-opacity=".5" stroke-width="3" stroke-linejoin="round"><path d="M6 8l70-4 8 52-62 6z"/><path d="M84 6l78 8-6 48-66-6z"/><path d="M10 70l56 6 4 50-58-4z"/><path d="M74 68l44 4 8 54-48 2z"/><path d="M126 72l40 2-2 50-34 4z"/></g></pattern>
+</defs>
+<g id="cam"><g id="shop" filter="url(#ink)" stroke="#120c08" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<rect x="-10" y="-10" width="820" height="560" class="wa" stroke="none"/><rect x="-10" y="-10" width="820" height="560" fill="url(#stn)" stroke="none"/>
+<g fill="none" stroke="#000" stroke-opacity=".35" stroke-width="3"><path d="M20 90l28 14-10 24 26 12M752 60l-22 20 14 18-20 16M30 330l24-12 8 22 26-6M742 300l-26 10 6 24-22 8"/></g>
+<g clip-path="url(#open)">
+<rect x="118" y="60" width="564" height="380" fill="#0b0a10" stroke="none"/>
+<g id="out">
+<rect x="118" y="68" width="564" height="240" class="sk" stroke="none"/>
+<g class="tr" id="trk"><rect x="170" y="90" width="40" height="230"/><rect x="330" y="90" width="34" height="230"/><rect x="520" y="90" width="44" height="230"/><rect x="640" y="90" width="30" height="230"/></g>
+<g class="bu"><ellipse cx="190" cy="270" rx="62" ry="30"/><ellipse cx="347" cy="278" rx="54" ry="26"/><ellipse cx="542" cy="272" rx="66" ry="30"/><ellipse cx="655" cy="280" rx="48" ry="24"/></g>
+<g class="eyes" fill="#fff3a0" stroke="none"><ellipse cx="180" cy="270" rx="4" ry="6"/><ellipse cx="198" cy="270" rx="4" ry="6"/><ellipse cx="340" cy="280" rx="3" ry="5"/><ellipse cx="354" cy="280" rx="3" ry="5"/><ellipse cx="532" cy="274" rx="5" ry="7"/><ellipse cx="552" cy="274" rx="5" ry="7"/><ellipse cx="650" cy="283" rx="3" ry="5"/><ellipse cx="662" cy="283" rx="3" ry="5"/></g>
+<rect x="118" y="290" width="564" height="150" class="gr" stroke="none"/>
+<g fill="none" class="gt" stroke-width="4"><path d="M150 320l6-14 6 14M300 330l6-14 6 14M470 318l6-14 6 14M600 332l6-14 6 14M210 352l6-14 6 14M540 350l6-14 6 14"/></g>
+<path id="dirt" d="M118 432V384Q250 352 400 364Q560 376 682 358V432Z" class="di"/><path d="M118 390Q250 358 400 370Q560 382 682 364" fill="none" stroke="#000" stroke-opacity=".22" stroke-width="8"/>
+<g class="t t1" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="7"><path d="M230 424Q320 392 420 398T600 384"/><path d="M232 412Q322 380 422 386T602 372"/></g>
+<g class="t t2" stroke-width="3"><rect x="250" y="388" width="22" height="16" rx="6" fill="#cfd6d0" transform="rotate(-70 260 396)"/><rect x="420" y="402" width="20" height="16" rx="6" fill="#cfd6d0" transform="rotate(20 430 410)"/><rect x="540" y="384" width="22" height="16" rx="6" fill="#cfd6d0" transform="rotate(100 550 392)"/></g>
+<g class="t t3" stroke="none"><circle cx="450" cy="288" r="22" fill="#ffe27a" fill-opacity=".3"/><circle cx="450" cy="288" r="7" fill="#fff3b0"/></g>
+</g>
+<g id="dem" stroke="none"><g id="dm"><path d="M-40 110Q-46-20 0-60Q46-20 40 110Z" fill="#07060b"/><path d="M-26-40l-16-40 28 24M26-40l16-40-28 24" fill="#07060b"/><ellipse cx="-14" cy="-22" rx="7" ry="11" fill="#fff3a0"/><ellipse cx="14" cy="-22" rx="7" ry="11" fill="#fff3a0"/></g></g>
+<g id="who"></g>
+<g id="mir" transform="translate(160 88) scale(.6)"></g>
+<g class="shutter" id="shut" style="transform:translateY(174px)"><rect x="118" y="-130" width="564" height="388" class="sh"/><path d="M118 90H682M118 112H682M118 134H682M118 156H682M118 178H682M118 200H682M118 222H682" stroke="#000" stroke-opacity=".2" stroke-width="3"/><rect x="118" y="244" width="564" height="14" fill="#000" fill-opacity=".3"/><rect x="378" y="236" width="44" height="22" rx="8" fill="#e4e6ea"/><rect x="118" y="258" width="564" height="46" fill="url(#sd)" stroke="none"/></g>
+</g>
+<path d="M90 40H710V460H90ZM118 68V432H682V68Z" class="wd" fill-rule="evenodd"/>
+<path d="M104 52H696M104 448H696" stroke="#fff" stroke-opacity=".2" stroke-width="3"/><path d="M96 90V420M104 130V380M700 100V410M692 150V360M150 46H640M200 456H600" stroke="#000" stroke-opacity=".25" stroke-width="2" fill="none"/>
+<rect x="70" y="432" width="660" height="40" rx="6" class="wd"/>
+<g id="hands"></g>
+<g stroke-width="3.5"><rect x="132" y="400" width="30" height="32" rx="8" fill="#ff7ac8"/><rect x="138" y="390" width="18" height="12" fill="#e6d9b0"/><rect x="170" y="408" width="26" height="24" rx="8" fill="#5be08a"/><rect x="175" y="400" width="16" height="10" fill="#e6d9b0"/><rect x="640" y="398" width="32" height="34" rx="9" fill="#ffe14a"/><rect x="646" y="388" width="20" height="12" fill="#e6d9b0"/></g>
+<g class="sign"><path d="M586 84L580 108M630 84L636 108" fill="none" stroke-width="3"/><rect x="556" y="104" width="104" height="46" rx="8" fill="#ffd84a"/><text x="608" y="136" text-anchor="middle" font-family="Fredoka,'Trebuchet MS',sans-serif" font-weight="600" font-size="22" fill="#d6262d" stroke="none">ABIERTO</text></g>
+<rect x="-10" y="472" width="820" height="80" class="wd"/>
+<g fill="none" stroke="#000" stroke-opacity=".3" stroke-width="3"><path d="M0 500H800M0 524H800M180 472V500M520 500V524M330 472V500"/></g>
+</g>
+<g id="own" stroke="#17100a" stroke-width="4" stroke-linejoin="round" style="opacity:0"><rect x="-10" y="540" width="820" height="300" class="wd"/></g>
+</g>
+<rect width="800" height="540" fill="url(#vg)" pointer-events="none"/><rect width="800" height="540" filter="url(#gr)" style="opacity:var(--gn)" pointer-events="none"/>
+</svg>
+<div id="fade"></div>
+</div>
+<div class="ui" id="ui"></div>
+</main>
+<script>
+const $=id=>document.getElementById(id),ui=$('ui'),sv=$('sv'),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const CUOTA=8,PAGA={g:[5,1],h:[9,2]};
+let day=1,coins=0,rot=0,col=null;
+const ING=[['Moho','🍄','#9c5fd1'],['Raíz','🥕','#ff9a3c'],['Sal','🧂','#e8e8f0'],['Hueso','🦴','#e8dcc0'],['Ojo','👁️','#6fd0ff'],['Flor','🌹','#ff4f7a'],['Araña','🕷️','#555566'],['Cera','🕯️','#ffe08a']];
+const emo=n=>ING.find(i=>i[0]==n)[1];
+const D=[
+{m:'Alguien pasó por acá.',g:['Algo para dormir. Nada más.',['Flor','Moho','Sal']],h:['Algo para que pase.',['Raíz','Moho','Sal']],a:'Gracias.',r:'Entonces vuelvo mañana.',d:'Ocho. Todas las noches.'},
+{m:'Frascos vacíos tirados en la tierra. “No son tuyos. ¿O sí?”',g:['Para los huesos. Me duelen cuando llueve.',['Hueso','Raíz','Sal']],h:['Lo mismo, pero más fuerte.',['Hueso','Ojo','Moho']],a:'Ayer ayudó.',r:'Ayer ayudó.',d:'Estás cumpliendo.'},
+{m:'Una luz lejana que no se apaga.',g:['Para ver en la oscuridad.',['Ojo','Cera','Araña']],h:['No me preguntes para qué.',['Araña','Raíz','Cera']],a:'La mano tiembla al agarrar el frasco.',r:'La mano golpea la ventanilla. Una vez. Suave.',d:'Todos pagan.'},
+{m:'Hoy no hay nada.',g:['Algo para el miedo.',['Flor','Sal','Cera']],h:['La última. Después no vengo más.',['Ojo','Hueso','Flor']],a:'La mano se queda un segundo de más. Después se retira.',r:'La mano se queda un segundo de más. Después se retira.',d:'Última noche. Veamos qué elegiste.'}];
+/* audio */
+let A,mg,bg,wg,sg;
+function tone(f,d,o,t='sine',v=.2,f2){if(!A)return;const x=A.createOscillator(),g=A.createGain(),n=A.currentTime;x.type=t;x.frequency.setValueAtTime(f,n);if(f2)x.frequency.linearRampToValueAtTime(f2,n+d);g.gain.setValueAtTime(v,n);g.gain.exponentialRampToValueAtTime(.001,n+d);x.connect(g);g.connect(o);x.start();x.stop(n+d);}
+function audio(){if(A)return;A=new AudioContext();[mg,bg,wg,sg]=[0,0,0,0].map(()=>{const g=A.createGain();g.gain.value=0;g.connect(A.destination);return g});sg.gain.value=1;
+const b=A.createBuffer(1,A.sampleRate*2,A.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;
+const s=A.createBufferSource(),f=A.createBiquadFilter();s.buffer=b;s.loop=true;f.type='lowpass';f.frequency.value=380;s.connect(f);f.connect(wg);s.start();
+const sc=[261,293,329,392,440,392,329,293];let k=0;
+setInterval(()=>{tone(sc[k++%8]*(day>1?.94:1),.45,mg,'triangle',.3)},500);
+setInterval(()=>{if(bg.gain.value>.02){const f=1800+Math.random()*1400;tone(f,.12,bg,'sine',.25,f+500)}},700);}
+function mix(){if(!A)return;const L=[[.5,.12,0],[0,.09,.03],[0,0,.2],[0,0,.03]][day-1];[bg,mg,wg].forEach((g,i)=>g.gain.setTargetAtTime(L[i],A.currentTime,.5))}
+const sfx=k=>{if(!A)return;if(k=='c')tone(660,.08,sg,'square',.05);if(k=='$'){tone(880,.1,sg,'square',.06);setTimeout(()=>tone(1320,.15,sg,'square',.06),90)}if(k=='t')tone(90,.25,sg,'sine',.5);if(k=='d')tone(70,1.4,sg,'sawtooth',.12,50);if(k=='v')for(let i=0;i<6;i++)setTimeout(()=>tone(150-i*8,.3,sg,'sawtooth',.1,130-i*8),i*220)};
+/* manos y clientes */
+const SK=['#f4c79a','#e6c6aa','#d2cfbf','#b2bbae','#97a39f','#82908d'];
+function hand(x,y,r,s,m,st){const w=17-r*1.8,c=SK[r],hs=[30,38,40,32],pw=4*(w+3);let f='';
+for(let i=0;i<4;i++){const fx=i*(w+3);f+=`<rect x="${fx}" y="${-hs[i]}" width="${w}" height="${hs[i]+8}" rx="${w/2}" fill="${c}"/><rect x="${fx+1}" y="${-hs[i]}" width="${w-2}" height="9" rx="3" fill="${r?'#16141a':'#e9a98a'}"/>`}
+return `<g transform="translate(${x} ${y}) scale(${m?-s:s} ${s})" opacity="${r>4?.65:1}"><rect x="-6" y="34" width="${pw+6}" height="70" rx="6" fill="#1e1a22"/>${f}<rect x="-4" y="-4" width="${pw+4}" height="44" rx="16" fill="${c}"/><path d="M-4 22Q${pw/2} 34 ${pw} 22V24Q${pw} 40 ${pw-12} 40H8Q-4 40-4 24Z" fill="#000" fill-opacity=".14" stroke="none"/><ellipse cx="-6" cy="14" rx="7" ry="13" fill="${c}" transform="rotate(-25 -6 14)"/>${st?`<circle cx="${pw/2}" cy="18" r="9" fill="${st}" stroke="none"/>`:''}${r>1?`<path d="M6 6l8 10M${pw-8} 8l-6 12" stroke="#5a4a6a" stroke-width="2" fill="none"/>`:''}</g>`}
+const torso=c=>`<path d="M240 432Q240 250 400 230Q560 250 560 432Z" fill="${c}"/><path d="M270 432Q270 290 330 262" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="8"/>`;
+async function show(k){const w=$('who'),h=$('hands');w.style.opacity=h.style.opacity=0;await sleep(300);
+w.innerHTML=torso(k=='g'?'#4a3f6b':'#18171c');const r=k=='g'?0:Math.min(5,Math.max(rot,day-1));
+h.innerHTML=hand(300,396,r,1,0,k=='h'?col:0)+hand(500,396,r,1,1,k=='h'?col:0);h.className.baseVal='';
+void w.getBoundingClientRect();w.style.opacity=h.style.opacity=1;sfx('t');await sleep(700)}
+async function hideC(){$('who').style.opacity=$('hands').style.opacity=0;await sleep(800)}
+/* UI */
+function say(t,b=['Seguir'],w){return new Promise(r=>{ui.innerHTML=`<p class="cap">${w?`<b>${w}:</b> `:''}${t}</p><div class="row">${b.map((x,i)=>`<button data-i="${i}">${x}</button>`).join('')}</div>`;ui.onclick=e=>{if(e.target.tagName=='BUTTON'){ui.onclick=null;sfx('c');r(+e.target.dataset.i)}}})}
+const hud=p=>{$('dl').textContent=`Día ${day} · ${p}`;$('co').textContent=`🪙 ${coins} · cuota ${CUOTA}`};
+function brew(full,hid,hint){return new Promise(res=>{ui.onclick=null;let pick=[];
+ui.innerHTML=`<p class="cap">${hint}</p><div class="rec">${full.map((n,i)=>hid&&i==2?`<span class="ch sm">${n[0]}…?</span>`:`<span class="ch">${emo(n)} ${n}</span>`).join('')}</div><div class="shelf">${ING.map((g,i)=>`<button class="ing" data-i="${i}">${g[1]}<small>${g[0]}</small></button>`).join('')}</div><p class="cap" id="sl">Caldero: vacío</p><div class="row"><button id="mx" disabled>Mezclar</button></div>`;
+const sl=$('sl'),mx=$('mx'),bs=[...ui.querySelectorAll('.ing')];
+bs.forEach(b=>b.onclick=()=>{sfx('c');const i=+b.dataset.i,k=pick.indexOf(i);if(k>=0){pick.splice(k,1);b.classList.remove('on')}else if(pick.length<3){pick.push(i);b.classList.add('on')}
+sl.textContent='Caldero: '+(pick.map(i=>ING[i][1]).join(' ')||'vacío');mx.disabled=pick.length<3});
+mx.onclick=()=>{bs.forEach(b=>b.disabled=true);ui.querySelector('.row').innerHTML='<div class="bar"><i class="zn"></i><i class="mk"></i></div><button id="st">¡Ahora!</button>';
+const z=12+Math.random()*52,zn=ui.querySelector('.zn'),mk=ui.querySelector('.mk');zn.style.left=z+'%';zn.style.width='24%';let t=0;
+const iv=setInterval(()=>{t+=.035+day*.012;mk.style.left=(50+47*Math.sin(t))+'%'},16);
+$('st').onclick=async()=>{clearInterval(iv);const p=parseFloat(mk.style.left),ok=p>=z&&p<=z+24,m=[...pick.map(i=>ING[i][0])].sort().join()==[...full].sort().join();
+const cs=pick.map(i=>ING[i][2]),rgb=[1,3,5].map(k=>Math.round(cs.reduce((a,c)=>a+parseInt(c.slice(k,k+2),16),0)/3)),c=`rgb(${rgb})`;
+sfx('$');sl.innerHTML=`<span class="po" style="background:${c}"></span>La poción burbujea.`;ui.querySelector('.row').innerHTML='';await sleep(1200);res({good:ok&&m,col:c})}}})}
+/* juego */
+async function client(k,E){
+const [line,full]=E[k=='g'?'g':'h'];hud(k=='g'?'Cliente':'Las manos');
+await show(k);
+if(k=='h'&&day==4)await say('Las manos casi no se ven.');
+const ch=await say(`“${line}”`,['Aceptar pedido','Rechazar'],k=='g'?'Sombra':'Manos');
+const hid=k=='h';let gain=0;
+if(ch==0){const r=await brew(full,hid,day==1&&k=='g'?'Tutorial: buscá en el estante los 3 ingredientes de la receta, ponelos en el caldero y frená la barra en la zona verde.':hid?'El último ingrediente está manchado. Completá la receta.':'Receta completa. Buscá los ingredientes.');
+gain=PAGA[k][r.good?0:1];coins+=gain;if(k=='h'){col=r.col;rot=Math.min(5,rot+1+(r.good?0:1))}hud('Entrega')}
+if(k=='g'){await say(ch==0?`“Gracias.” +${gain} 🪙`:'La sombra se va sin decir nada.')}
+else{if(ch==0)await say(E.a+` +${gain} 🪙`);else await say(E.r);
+if(day==3&&ch==0){$('hands').classList.add('trem');await sleep(1200);$('hands').classList.remove('trem')}
+if(day==3&&ch==1){sv.classList.add('knock');sfx('t');await sleep(500);sv.classList.remove('knock')}
+if(day==4)await sleep(800)}
+await hideC()}
+async function dayLoop(){const E=D[day-1];
+sv.classList.remove('nt');sv.className.baseVal='d'+day;sv.style.transition='';mix();hud('Mañana');
+$('dem').style.opacity=0;$('shut').style.transform='translateY(174px)';await sleep(300);$('shut').style.transform='translateY(0)';sfx('t');await sleep(1800);
+await say(E.m,['Atender']);
+await client('g',E);await client('h',E);
+hud('Noche');sv.classList.add('nt');const dm=$('dm'),k=[.6,.8,1,1.35][day-1],x=[600,540,470,400][day-1];dm.setAttribute('transform',`translate(${x} 330) scale(${k})`);
+await sleep(1200);$('dem').style.opacity=1;sfx('d');await sleep(1200);
+await say(`“${E.d}”`,['Seguir'],'Demonio');
+if(day==4)return true;
+if(coins<CUOTA){await say('“No alcanza.”',['Seguir'],'Demonio');return false}
+coins-=CUOTA;hud('Noche');await say(`El demonio cobra ${CUOTA} 🪙.`);return true}
+async function fadeTxt(h,ms){const f=$('fade');f.innerHTML=h;f.style.opacity=1;f.style.pointerEvents='auto';await sleep(ms)}
+async function ending(){ui.innerHTML='';hud('Final');$('dem').style.opacity=0;
+await say('El demonio no cobra nada.');ui.innerHTML='';
+const r=Math.min(5,Math.max(rot,3)),sil='<g fill="#07060b" stroke="#2b2733" stroke-width="3"><path d="M326 474Q326 340 400 322Q474 340 474 474Z"/><circle cx="400" cy="296" r="30"/><path d="M356 276L400 186L444 276Z"/><ellipse cx="400" cy="276" rx="62" ry="11"/></g>';
+$('mir').innerHTML=$('shop').innerHTML.replace(/ id="/g,' data-i="')+`<g class="idle">${sil}</g>`;
+$('shut').style.transform='translateY(0)';await sleep(100);$('shut').style.transform='translateY(-200px)';sfx('t');await sleep(1500);
+$('out').style.opacity=0;$('mir').style.opacity=1;await sleep(4500);
+$('own').style.opacity=1;$('own').innerHTML+=hand(300,640,r,1.6,0,col)+hand(500,640,r,1.6,1,col);
+$('cam').style.transform='translateY(-190px)';await sleep(5000);
+sfx('v');await say('Tu propia voz, con el tono de las manos: “Algo para que pase.”',['…']);
+await fadeTxt('Del otro lado<br><button id="rs" style="margin-top:18px">Jugar de nuevo</button>',200);$('rs').onclick=()=>location.reload()}
+async function play(){coins=0;rot=0;col=null;
+for(day=1;day<=4;day++){if(!await dayLoop()){const f=$('fade');await fadeTxt('El bosque se cierra.',2800);f.style.opacity=0;f.style.pointerEvents='none';await sleep(1500);return play()}}
+day=4;await ending()}
+(function(){let v=7;const q=n=>{v=(v*9301+49297)%233280;return v/233280*n};let t='',d='',b='';
+for(let i=0;i<70;i++){const x=125+q(550),y=300+q(120);t+=`<path d="M${x} ${y}l4-12 4 12M${x+7} ${y}l5-9 3 9" fill="none" class="gt" stroke-width="3"/>`}
+for(let i=0;i<40;i++)d+=`<circle cx="${125+q(550)}" cy="${372+q(55)}" r="${1+q(2)}" fill="#000" fill-opacity=".25" stroke="none"/>`;
+[[170,40],[330,34],[520,44],[640,30]].forEach(([x,w])=>{b+=`<path d="M${x+6} 96V300M${x+w*.5} 110V310M${x+w-8} 100V296" stroke="#000" stroke-opacity=".3" stroke-width="3" fill="none"/><path d="M${x+3} 92V300" stroke="#fff" stroke-opacity=".18" stroke-width="5" fill="none"/>`});
+$('dirt').insertAdjacentHTML('beforebegin',t);$('dirt').insertAdjacentHTML('afterend',d);$('trk').insertAdjacentHTML('afterend',b)})();
+(async()=>{hud('Intro');await say('Atendés por una ventanilla a medio abrir. Nunca ves quién pide, solo las manos. Todas las noches, alguien cobra 8 monedas.',['Abrir la tienda']);audio();play()})();
+</script>
+</body>
+</html>
